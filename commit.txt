@@ -1,6 +1,7 @@
-feat: setup react-router v7 and daisyui
+feat: refactor app structure with layout and separate routes
 
-- Added react-router (v7) for application routing
-- Configured RouterProvider in main.jsx
-- Integrated Tailwind CSS v4 and DaisyUI
-- Set up initial App component structure
+- Moved router configuration to src/Routes/routes.jsx
+- Created Root layout with Navbar, Footer, and Outlet
+- Added initial Navbar and Footer components
+- Added ErrorPage component and configured errorElement
+- Fixed route file extension to .jsx
