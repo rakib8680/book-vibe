@@ -1,0 +1,6 @@
+feat: setup react-router v7 and daisyui
+
+- Added react-router (v7) for application routing
+- Configured RouterProvider in main.jsx
+- Integrated Tailwind CSS v4 and DaisyUI
+- Set up initial App component structure
