@@ -2,7 +2,7 @@ import bannerImg from "../../assets/image.png";
 
 const Banner = () => {
   return (
-    <div className="bg-gray-100 rounded-2xl mt-8 px-36 py-20 flex flex-col md:flex-row items-center justify-around">
+    <div className="bg-gray-100 rounded-2xl my-10 px-36 py-20 flex flex-col md:flex-row items-center justify-around">
       {/* Left Side - Text & Button */}
       <div className="md:w-1/2 flex-2">
         <h1
