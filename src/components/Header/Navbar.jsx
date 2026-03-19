@@ -5,7 +5,9 @@ const Navbar = () => {
     <div className="navbar bg-base-100 py-4 pt-10">
       {/* Logo - Left */}
       <div className="navbar-start">
-        <a className="text-2xl font-bold text-gray-800">Book Vibe</a>
+        <NavLink to="/" className="text-2xl font-bold text-gray-800">
+          Book Vibe
+        </NavLink>
       </div>
 
       {/* Nav Links - Center (hidden on mobile) */}

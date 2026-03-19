@@ -2,7 +2,7 @@ import { Suspense } from "react";
 import Book from "./Book";
 
 const Books = () => {
-  const BooksPromise = fetch("/booksData.json").then((res) => res.json());
+  const BooksPromise = fetch("booksData.json").then((res) => res.json());
 
   return (
     <div className="my-36">
