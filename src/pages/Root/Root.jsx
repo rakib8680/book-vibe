@@ -4,9 +4,11 @@ import { Outlet } from "react-router";
 
 const Root = () => {
   return (
-    <div>
+    <div className="container mx-auto">
       <Navbar />
-      <Outlet/>
+      <div className="min-h-screen">
+        <Outlet />
+      </div>
       <Footer />
     </div>
   );

@@ -1,2 +1,8 @@
 @import "tailwindcss";
 @plugin "daisyui";
+
+@theme {
+  --font-sans: "Work Sans", sans-serif;
+  --color-primary: #23be0a;
+  --color-secondary: #59c6d2;
+}
