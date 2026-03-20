@@ -1,4 +1,5 @@
 import { useLoaderData, useParams } from "react-router";
+import { saveBooksToDB } from "../../utility/addToDB";
 
 const BookDetails = () => {
   const { bookId } = useParams();
@@ -16,6 +17,14 @@ const BookDetails = () => {
     yearOfPublishing,
     tags,
   } = book;
+
+
+  //handle add to read list
+  const handleAddToReadList = (bookId) =>{
+    saveBooksToDB(bookId);
+  }
+ 
+
 
   return (
     <div className="flex flex-col md:flex-row gap-10 my-12">
@@ -97,11 +106,11 @@ const BookDetails = () => {
 
         {/* Buttons */}
         <div className="flex gap-4 pt-2">
-          <button className="btn bg-white  border-gray-300 text-black rounded-lg px-8 py-6 font-semibold hover:bg-gray-100">
-            Read
+          <button onClick={()=>handleAddToReadList(bookId)} className="btn bg-white  border-gray-300 text-black rounded-lg px-8 py-6 font-semibold hover:bg-gray-100">
+            Mark as Read
           </button>
           <button className="btn bg-[#59C6D2] border-none text-white rounded-lg px-8 py-6 font-semibold hover:opacity-90">
-            Wishlist
+            Add to Wishlist
           </button>
         </div>
       </div>
