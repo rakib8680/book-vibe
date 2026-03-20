@@ -18,13 +18,15 @@ const BookDetails = () => {
     tags,
   } = book;
 
-
   //handle add to read list
-  const handleAddToReadList = (bookId) =>{
-    saveBooksToDB(bookId);
-  }
- 
+  const handleAddToReadList = (bookId) => {
+    saveBooksToDB(bookId, "readList");
+  };
 
+  //handle add to wishlist
+  const handleAddToWishlist = (bookId) => {
+    saveBooksToDB(bookId, "wishList");
+  };
 
   return (
     <div className="flex flex-col md:flex-row gap-10 my-12">
@@ -106,10 +108,16 @@ const BookDetails = () => {
 
         {/* Buttons */}
         <div className="flex gap-4 pt-2">
-          <button onClick={()=>handleAddToReadList(bookId)} className="btn bg-white  border-gray-300 text-black rounded-lg px-8 py-6 font-semibold hover:bg-gray-100">
+          <button
+            onClick={() => handleAddToReadList(bookId)}
+            className="btn bg-white  border-gray-300 text-black rounded-lg px-8 py-6 font-semibold hover:bg-gray-100"
+          >
             Mark as Read
           </button>
-          <button className="btn bg-[#59C6D2] border-none text-white rounded-lg px-8 py-6 font-semibold hover:opacity-90">
+          <button
+            onClick={() => handleAddToWishlist(bookId)}
+            className="btn bg-[#59C6D2] border-none text-white rounded-lg px-8 py-6 font-semibold hover:opacity-90"
+          >
             Add to Wishlist
           </button>
         </div>

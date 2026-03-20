@@ -1,6 +1,6 @@
 //get from localstorage
-const getStoredBooks = () => {
-  const storedBooksSTR = localStorage.getItem("readList");
+const getStoredBooks = (listType) => {
+  const storedBooksSTR = localStorage.getItem(listType);
   if (storedBooksSTR) {
     return JSON.parse(storedBooksSTR);
   } else {
@@ -9,13 +9,18 @@ const getStoredBooks = () => {
 };
 
 //save to localstorage
-const saveBooksToDB = (bookId) => {
-  const storedBooks = getStoredBooks();
-  if (storedBooks.includes(bookId)) {
+const saveBooksToDB = (bookId, listType) => {
+  const storedBooks = getStoredBooks(listType);
+  const storedReadBooks = getStoredBooks("readList");
+  const storedWishListBooks = getStoredBooks("wishList");
+  if (
+    storedReadBooks.includes(bookId) ||
+    storedWishListBooks.includes(bookId)
+  ) {
     return;
   } else {
     storedBooks.push(bookId);
-    localStorage.setItem("readList", JSON.stringify(storedBooks));
+    localStorage.setItem(listType, JSON.stringify(storedBooks));
   }
 };
 
