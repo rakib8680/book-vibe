@@ -2,8 +2,11 @@ import { ArrowDownWideNarrow } from "lucide-react";
 import { useLoaderData } from "react-router";
 import { getStoredBooks } from "../../utility/addToDB";
 import ListedBooksCard from "./ListedBooksCard";
+import { useState } from "react";
 
 const ListedBooks = () => {
+  const [sortBy, setSortBy] = useState(null);
+
   const books = useLoaderData();
   const readListBooks = getStoredBooks("readList").map((id) =>
     books.find((book) => book.bookId === Number(id)),
@@ -11,6 +14,19 @@ const ListedBooks = () => {
   const wishListBooks = getStoredBooks("wishList").map((id) =>
     books.find((book) => book.bookId === Number(id)),
   );
+
+  // generic sort function that works for both lists
+  const sortBooks = (bookList) => {
+    if (!sortBy) return bookList;
+    return [...bookList].sort((a, b) => b[sortBy] - a[sortBy]);
+  };
+
+  const sortedReadList = sortBooks(readListBooks);
+  const sortedWishList = sortBooks(wishListBooks);
+
+  const handleSortBy = (sortType) => {
+    setSortBy(sortType);
+  };
 
   return (
     <div>
@@ -33,13 +49,15 @@ const ListedBooks = () => {
             className="dropdown-content menu bg-base-100 rounded-box z-10 w-52 p-2 shadow-md mt-2"
           >
             <li>
-              <a>Rating</a>
+              <a onClick={() => handleSortBy("rating")}>Rating</a>
             </li>
             <li>
-              <a>Number of pages</a>
+              <a onClick={() => handleSortBy("totalPages")}>Number of Pages</a>
             </li>
             <li>
-              <a>Publisher year</a>
+              <a onClick={() => handleSortBy("yearOfPublishing")}>
+                Publishing Year
+              </a>
             </li>
           </ul>
         </div>
@@ -55,9 +73,13 @@ const ListedBooks = () => {
           defaultChecked
         />
         <div className="tab-content p-6">
-          {readListBooks.map((book) => (
-            <ListedBooksCard key={book.bookId} book={book} />
-          ))}
+          {sortedReadList.length === 0 ? (
+            <p className="text-center text-gray-500">No books in read list</p>
+          ) : (
+            sortedReadList.map((book) => (
+              <ListedBooksCard key={book.bookId} book={book} />
+            ))
+          )}
         </div>
 
         <input
@@ -67,9 +89,13 @@ const ListedBooks = () => {
           aria-label="Wishlist Books"
         />
         <div className="tab-content  p-6">
-          {wishListBooks.map((book) => (
-            <ListedBooksCard key={book.bookId} book={book} />
-          ))}
+          {sortedWishList.length === 0 ? (
+            <p className="text-center text-gray-500">No books in wishlist</p>
+          ) : (
+            sortedWishList.map((book) => (
+              <ListedBooksCard key={book.bookId} book={book} />
+            ))
+          )}
         </div>
       </div>
     </div>

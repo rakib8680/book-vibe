@@ -13,15 +13,17 @@ const saveBooksToDB = (bookId, listType) => {
   const storedBooks = getStoredBooks(listType);
   const storedReadBooks = getStoredBooks("readList");
   const storedWishListBooks = getStoredBooks("wishList");
-  if (
-    storedReadBooks.includes(bookId) ||
-    storedWishListBooks.includes(bookId)
-  ) {
-    return;
-  } else {
-    storedBooks.push(bookId);
-    localStorage.setItem(listType, JSON.stringify(storedBooks));
+
+  if (storedReadBooks.includes(bookId)) {
+    return "already-in-read";
   }
+  if (storedWishListBooks.includes(bookId)) {
+    return "already-in-wishlist";
+  }
+
+  storedBooks.push(bookId);
+  localStorage.setItem(listType, JSON.stringify(storedBooks));
+  return "success";
 };
 
 export { getStoredBooks, saveBooksToDB };

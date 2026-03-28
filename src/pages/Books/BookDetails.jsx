@@ -1,5 +1,6 @@
 import { useLoaderData, useParams } from "react-router";
 import { saveBooksToDB } from "../../utility/addToDB";
+import { toast } from "sonner";
 
 const BookDetails = () => {
   const { bookId } = useParams();
@@ -20,12 +21,26 @@ const BookDetails = () => {
 
   //handle add to read list
   const handleAddToReadList = (bookId) => {
-    saveBooksToDB(bookId, "readList");
+    const result = saveBooksToDB(bookId, "readList");
+    if (result === "success") {
+      toast.success("Added to Read List successfully!");
+    } else if (result === "already-in-read") {
+      toast.warning("This book is already in your Read List!");
+    } else if (result === "already-in-wishlist") {
+      toast.info("This book is already in your Wishlist!");
+    }
   };
 
   //handle add to wishlist
   const handleAddToWishlist = (bookId) => {
-    saveBooksToDB(bookId, "wishList");
+    const result = saveBooksToDB(bookId, "wishList");
+    if (result === "success") {
+      toast.success("Added to Wishlist successfully!");
+    } else if (result === "already-in-read") {
+      toast.info("This book is already in your Read List!");
+    } else if (result === "already-in-wishlist") {
+      toast.warning("This book is already in your Wishlist!");
+    }
   };
 
   return (
