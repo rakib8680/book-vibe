@@ -79,7 +79,7 @@ const ListedBooksCard = ({ book }) => {
           <span className="text-[#FFAC33] bg-[#FFAC3326] px-5 py-2 rounded-full text-sm font-light">
             Rating: {rating}
           </span>
-          <Link to={`/books/${bookId}`}>
+          <Link to={`/book/${bookId}`}>
             <button className="btn bg-[#23BE0A] border-none text-white rounded-full px-5 py-2 text-sm font-light hover:opacity-90 min-h-0 h-auto">
               View Details
             </button>

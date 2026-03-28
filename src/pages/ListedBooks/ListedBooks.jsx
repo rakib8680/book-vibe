@@ -18,11 +18,31 @@ const ListedBooks = () => {
         <h1 className="text-center text-3xl font-bold">Books</h1>
       </div>
 
-      <div className=" my-10 flex justify-center">
-        <button className="btn bg-[#23BE0A] border-none text-white rounded-lg px-8 py-6 font-medium text-lg hover:opacity-90">
-          Sort By
-          <ArrowDownWideNarrow size={20} />
-        </button>
+      <div className="my-10 flex justify-center">
+        <div className="dropdown">
+          <div
+            tabIndex={0}
+            role="button"
+            className="btn border-none bg-[#23BE0A] text-white rounded-lg px-8 text-lg font-semibold hover:bg-[#1fa008]"
+          >
+            Sort By
+            <ArrowDownWideNarrow size={20} />
+          </div>
+          <ul
+            tabIndex={0}
+            className="dropdown-content menu bg-base-100 rounded-box z-10 w-52 p-2 shadow-md mt-2"
+          >
+            <li>
+              <a>Rating</a>
+            </li>
+            <li>
+              <a>Number of pages</a>
+            </li>
+            <li>
+              <a>Publisher year</a>
+            </li>
+          </ul>
+        </div>
       </div>
 
       {/* name of each tab group should be unique */}
