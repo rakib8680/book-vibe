@@ -1,16 +1,88 @@
-# React + Vite
+# 📚 Book Vibe
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern book review and reading tracker app built with React. Browse books, save them to your read list or wishlist, sort and filter your collection, and visualize your reading progress with beautiful charts.
 
-Currently, two official plugins are available:
+🔗 **Live Site:** [book-vibe.vercel.app](https://book-vibe-alpha.netlify.app)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+---
 
-## React Compiler
+## ✨ Features
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- **Browse Books** — Explore a curated collection of classic and modern books with detailed information
+- **Book Details** — View full book info including reviews, tags, ratings, publisher info, and page count
+- **Read List & Wishlist** — Save books to your personal read list or wishlist using localStorage
+- **Sort Books** — Sort your saved books by rating, number of pages, or publishing year
+- **Pages to Read Chart** — Visualize your reading list with a custom triangle bar chart
+- **Toast Notifications** — Get instant feedback with Sonner toast notifications for all actions
+- **Responsive Design** — Fully responsive layout that works across all screen sizes
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## 🛠️ Tech Stack
+
+| Technology | Purpose |
+|---|---|
+| **React 19** | UI Library |
+| **React Router 7** | Client-side routing |
+| **Vite 8** | Build tool & dev server |
+| **Tailwind CSS 4** | Utility-first styling |
+| **DaisyUI 5** | Component library |
+| **Recharts** | Data visualization |
+| **Sonner** | Toast notifications |
+| **Lucide React** | Icons |
+
+---
+
+## 🚀 Getting Started
+
+### Prerequisites
+
+- Node.js (v18 or higher)
+- npm
+
+### Installation
+
+```bash
+# Clone the repository
+git clone https://github.com/rakib8680/book-vibe.git
+
+# Navigate to the project
+cd book-vibe
+
+# Install dependencies
+npm install --legacy-peer-deps
+
+# Start the dev server
+npm run dev
+```
+
+The app will be running at `http://localhost:5173`
+
+---
+
+## 📁 Project Structure
+
+```
+src/
+├── components/
+│   ├── Header/Navbar.jsx
+│   └── Footer/Footer.jsx
+├── pages/
+│   ├── Home/Home.jsx
+│   ├── Books/BookDetails.jsx
+│   ├── ListedBooks/
+│   │   ├── ListedBooks.jsx
+│   │   └── ListedBooksCard.jsx
+│   ├── PagesToRead/PagesToRead.jsx
+│   ├── Root/Root.jsx
+│   └── ErrorPage/ErrorPage.jsx
+├── Routes/routes.jsx
+├── utility/addToDB.js
+└── main.jsx
+```
+
+---
+
+## 📄 License
+
+This project is open source and available under the [MIT License](LICENSE).
